@@ -1,7 +1,5 @@
-# sell
-
-> sell app
-
+# Vue2.0 + vue-router + webpck实现单页面应用
+> 
 ## Build Setup
 
 ``` bash

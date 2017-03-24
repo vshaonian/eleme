@@ -11,7 +11,7 @@ export default new Router({
       path: '/',
       components: {
         default: Hello,
-        a: Header
+        Header: Header
       }
     }
   ]

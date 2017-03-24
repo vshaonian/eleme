@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-
     <router-view name="Header"></router-view>
     <div class="tab">
-      <div class="tab-item">商品</div>
-      <div class="tab-item">评论</div>
-      <div class="tab-item">商家</div>
-    </div>
-    <div class="content">
-      i am content
+      <div class="tab-item">
+        <router-link to="/goods">商品</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/ratings">评价</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/seller">商家</router-link>
+      </div>
     </div>
     <router-view></router-view>
   </div>

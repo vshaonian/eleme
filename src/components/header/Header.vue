@@ -1,7 +1,6 @@
 <template>
   <div class="header">
     <h1>{{ msg }}</h1>
-    <h2>我真的是路由过来的</h2>
   </div>
 </template>
 
@@ -10,7 +9,7 @@
     name: 'Header',
     data () {
       return {
-        msg: '我是路由过来的'
+        msg: 'i am header'
       };
     }
   };

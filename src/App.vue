@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <router-view name="Header"></router-view>
+    <v-header></v-header>
     <div class="tab">
       <div class="tab-item">
-        <router-link to="/goods" activeClass="active">商品</router-link>
+        <router-link to="/goods">商品</router-link>
       </div>
       <div class="tab-item">
-        <router-link to="/ratings" activeClass="active">评价</router-link>
+        <router-link to="/ratings">评价</router-link>
       </div>
       <div class="tab-item">
-        <router-link to="/seller" activeClass="active">商家</router-link>
+        <router-link to="/seller">商家</router-link>
       </div>
     </div>
     <router-view></router-view>
@@ -17,7 +17,12 @@
 </template>
 
 <script>
-
+  import header from './components/header/Header';
+  export default{
+    components: {
+      'v-header': header
+    }
+  };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

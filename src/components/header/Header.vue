@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'Header',
+    name: 'v-header',
     data () {
       return {
         msg: 'i am header'

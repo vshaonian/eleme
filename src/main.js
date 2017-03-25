@@ -3,10 +3,12 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-
+import VueResouce from 'vue-resource';
 import './common/stylus/index.styl';
 
 /* eslint-disable no-new */
+Vue.use(VueResouce);
+
 new Vue({
   el: '#app',
   router,

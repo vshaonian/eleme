@@ -11,15 +11,6 @@
         </div>
         <div class="description">
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
-
-
-
-
-
-
-
-
-
         </div>
         <div v-if="seller.supports" class="support">
           <span class="icon" :class="classMap[seller.supports[0].type]"></span>
@@ -45,7 +36,7 @@
         </div>
       </div>
       <div class="detail-close">
-        <i class="icon-close"></i>
+        <i class="icon-close" @click="hideDetail"></i>
       </div>
     </div>
   </div>
@@ -66,6 +57,9 @@
     methods: {
       showDetail() {
         this.detailShow = true;
+      },
+      hideDetail() {
+        this.detailShow = false;
       }
     },
     created() {

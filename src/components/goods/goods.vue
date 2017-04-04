@@ -16,7 +16,7 @@
           <h1 class="title">{{item.name}}</h1>
           <ul>
             <li v-for="food in item.foods" class="food-item border-1px">
-              <div class="icon">c
+              <div class="icon">
                 <img width="57" height="57" :src="food.icon" alt="">
               </div>
               <div class="content">
@@ -28,6 +28,9 @@
                 <div class="price">
                   <span class="now">￥{{food.price}}</span>
                   <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
+                </div>
+                <div class="cartcontrol-wrapper">
+                  <cartcontrol :food="food"></cartcontrol>
                 </div>
               </div>
             </li>
@@ -43,6 +46,7 @@
 
   import BScroll from 'better-scroll';
   import shopcart from 'components/shopcart/shopcart';
+  import cartcontrol from 'components/cartcontrol/cartcontrol';
 
   const ERR_OK = 0;
 
@@ -102,7 +106,8 @@
         });
 
         this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
-          probeType: 3
+          probeType: 3,
+          click: true
         });
 
         this.foodsScroll.on('scroll', (pos) => {
@@ -121,7 +126,8 @@
       }
     },
     components: {
-      shopcart
+      shopcart,
+      cartcontrol
     }
   };
 </script>
@@ -228,4 +234,8 @@
               text-decoration: line-through
               font-size: 10px
               color: rgb(147, 153, 159)
+          .cartcontrol-wrapper
+            position: absolute
+            right: 0
+            bottom: 12px
 </style>

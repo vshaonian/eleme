@@ -2,7 +2,8 @@
   <div class="goods">
     <div class="menu-wrapper" ref="menuWrapper">
       <ul>
-        <li v-for="(item,index) in goods" class="menu-item" :class="{'current':currentIndex === index}">
+        <li v-for="(item,index) in goods" class="menu-item" :class="{'current':currentIndex === index}"
+            @click="selectMenu(index,$event)">
           <span class="text border-1px">
             <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
           </span>
@@ -15,7 +16,7 @@
           <h1 class="title">{{item.name}}</h1>
           <ul>
             <li v-for="food in item.foods" class="food-item border-1px">
-              <div class="icon">
+              <div class="icon">c
                 <img width="57" height="57" :src="food.icon" alt="">
               </div>
               <div class="content">
@@ -83,8 +84,18 @@
       }
     },
     methods: {
+
+      selectMenu(index, event) {
+        if (!event._constructed) {
+          return;
+        }
+        console.log(index);
+      },
+
       _initScroll() {
-        this.menuScroll = new BScroll(this.$refs.menuWrapper, {});
+        this.menuScroll = new BScroll(this.$refs.menuWrapper, {
+          click: true
+        });
 
         this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
           probeType: 3
@@ -135,8 +146,6 @@
           margin-top: -1px
           background: #fff
           font-weight: 700
-          .text
-            border-none()
         .icon
           display: inline-block
           vertical-align: top

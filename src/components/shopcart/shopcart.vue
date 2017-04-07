@@ -29,7 +29,7 @@
           <h1 class="title">购物车</h1>
           <span class="empty">清空</span>
         </div>
-        <div class="list-content">
+        <div class="list-content" ref="listContent">
           <ul>
             <li class="food" v-for="food in selectFoods">
               <span class="name">{{food.name}}</span>
@@ -48,6 +48,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import BScroll from 'better-scroll';
   import cartcontrol from 'components/cartcontrol/cartcontrol';
 
   export default {
@@ -127,6 +128,17 @@
           return false;
         }
         let show = !this.fold;
+        if (show) {
+          this.$nextTick(() => {
+            if (!this.scroll) {
+              this.scroll = new BScroll(this.$refs.listContent, {
+                click: true
+              });
+            } else {
+                this.scroll.refresh();
+            }
+          });
+        }
         return show;
       }
     },

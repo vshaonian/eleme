@@ -17,9 +17,8 @@
         </div>
       </div>
       <div class="ball-container">
-        <div v-for="ball in balls"></div>
-        <transition name="drop">
-          <div class="ball">
+        <transition v-for="ball in balls" name="drop">
+          <div class="ball" v-show="ball.show">
             <div class="inner inner-hook"></div>
           </div>
         </transition>
@@ -148,6 +147,9 @@
       }
     },
     methods: {
+      drop(el) {
+        console.log(el);
+      },
       toggleList() {
         if (!this.totalCount) {
           return;
@@ -265,6 +267,19 @@
           &.enough
             background: #00b43c
             color: #fff
+    .ball-container
+      .ball
+        position: fixed
+        left: 32px
+        bottom: 22px
+        z-index: 200
+        transition: all 0.4s
+        .inner
+          width: 16px
+          height: 16px
+          border-radius: 50%
+          background: rgb(0, 160, 220)
+          transition: all 0.4s
     .shopcart-list
       position: absolute
       left: 0

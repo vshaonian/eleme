@@ -29,6 +29,7 @@
         } else {
           this.food.count++;
         }
+        this.$emit('add', event.target);
       },
       decreaseCart(event) {
         if (!event._constructed) {
@@ -56,7 +57,7 @@
         color: rgb(0, 160, 220)
         transition: all 0.4s linear
         transform: rotate(0)
-      &.move-enter,&.move-leave-active
+      &.move-enter, &.move-leave-active
         opacity: 0
         transform: translate3d(24px, 0, 0)
         .inner

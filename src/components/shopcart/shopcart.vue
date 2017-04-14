@@ -161,6 +161,7 @@
         }
       },
       beforeDrop(el) {
+          console.log('drop');
         let count = this.balls.length;
         while (count--) {
           let ball = this.balls[count];

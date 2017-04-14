@@ -22,7 +22,7 @@
           <cartcontrol :food="food"></cartcontrol>
         </div>
         <transition name="fade">
-          <div class="buy" v-show="!food.count || food.count===0" @click="addFirst">加入购物车</div>
+          <div class="buy" v-show="!food.count || food.count===0" @click.stop.prevent="addFirst">加入购物车</div>
         </transition>
       </div>
     </div>
@@ -67,6 +67,9 @@
         }
         Vue.set(this.food, 'count', 1);
         this.$emit('add', event.target);
+      },
+      addFood(target) {
+        this.$emit('add', target);
       }
     },
     components: {
